@@ -23,6 +23,7 @@ const getMode = (array) => {
   const mode = Object.keys(counts).filter(
     (el) => counts[el] === counts[highest]
   );
+  return mode.join(", ");
 };
 
 const calculate = () => {
@@ -33,7 +34,9 @@ const calculate = () => {
     .filter((element) => !isNaN(element));
   const mean = getMean(numbers);
   const median = getMedian(numbers);
+  const mode = getMode(numbers);
 
   document.querySelector("#mean").textContent = mean;
   document.querySelector("#median").textContent = median;
+  document.querySelector("#mode").textContent = mode;
 };
