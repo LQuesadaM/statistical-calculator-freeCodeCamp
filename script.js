@@ -30,7 +30,11 @@ const getRange = (array) => Math.max(...array) - Math.min(...array);
 
 const getVariance = (array) => {
   const mean = getMean(array);
-  const differences = array.map((el) => el - mean);
+  const variance = array.reduce((accumulator, currentValue) => {
+    const difference = currentValue - mean;
+    const squared = difference ** 2;
+    return accumulator + squared;
+  }, 0);
 };
 
 const calculate = () => {
